@@ -1,19 +1,43 @@
 package github.kacperKwiatkowski.book_store.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "books")
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String author;
+
+
+    public Book() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 }
