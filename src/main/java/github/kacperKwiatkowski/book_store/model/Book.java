@@ -8,7 +8,6 @@ public class Book {
 
     @Id
     private String iban;
-    private int id;
     private String title;
     private String author;
     private String langOfPrint;

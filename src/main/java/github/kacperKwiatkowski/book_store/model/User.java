@@ -9,7 +9,8 @@ import java.util.Set;
 public class User {
 
     @Id
-    @Column(name = "user's_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int id;
     private String email;
     private String nick;
@@ -19,12 +20,12 @@ public class User {
     private String phoneNum;
     private int houseNum;
     private int flatNum;
-    private int street;
+    private String street;
     private String town;
     private String postcode;
     private LocalDate dob;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     private Set<UserPurchase> userPurchases;
 
     public User() {
@@ -94,11 +95,11 @@ public class User {
         this.flatNum = flatNum;
     }
 
-    public int getStreet() {
+    public String getStreet() {
         return street;
     }
 
-    public void setStreet(int street) {
+    public void setStreet(String street) {
         this.street = street;
     }
 
@@ -126,11 +127,11 @@ public class User {
         this.dob = dob;
     }
 
-    public Set<UserPurchase> getUserPurchases() {
+/*    public Set<UserPurchase> getUserPurchases() {
         return userPurchases;
     }
 
     public void setUserPurchases(Set<UserPurchase> userPurchases) {
         this.userPurchases = userPurchases;
-    }
+    }*/
 }
