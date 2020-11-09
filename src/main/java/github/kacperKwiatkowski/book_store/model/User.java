@@ -126,8 +126,8 @@ public class User {
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
-
-/*    public Set<UserPurchase> getUserPurchases() {
+/*
+    public Set<UserPurchase> getUserPurchases() {
         return userPurchases;
     }
 

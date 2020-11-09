@@ -38,4 +38,27 @@ public class UserPurchase {
         this.id = id;
     }
 
+    public LocalDate getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public void setDateOfPurchase(LocalDate dateOfPurchase) {
+        this.dateOfPurchase = dateOfPurchase;
+    }
+
+    public double getAmountOfPurchase() {
+        return amountOfPurchase;
+    }
+
+    public void setAmountOfPurchase(double amountOfPurchase) {
+        this.amountOfPurchase = amountOfPurchase;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
