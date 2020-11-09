@@ -36,10 +36,7 @@ public class BookController {
     @PostMapping
     ResponseEntity<Book> createBookPosition(@RequestBody /*@Valid*/ Book bookPositionToCreate){
         Book retrievedBook = bookRepository.save(bookPositionToCreate);
-        return ResponseEntity.created(URI.create("/" + retrievedBook.getId())).body(retrievedBook);
+        return ResponseEntity.created(URI.create("/" + retrievedBook.getIban())).body(retrievedBook);
     }
-
-
-
 
 }

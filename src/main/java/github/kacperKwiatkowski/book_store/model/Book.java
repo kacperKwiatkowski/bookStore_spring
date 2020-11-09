@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String iban;
     private int id;
     private String title;
     private String author;
@@ -16,29 +16,17 @@ public class Book {
     private int numOfPages;
     private double price;
     private int amountInStock;
-    private String iban;
 
     public Book() {
 
     }
 
-    public Book(String title, String author, String langOfPrint, String langOfOrigin, int numOfPages, double price, int amountInStock, String iban) {
-        this.title = title;
-        this.author = author;
-        this.langOfPrint = langOfPrint;
-        this.langOfOrigin = langOfOrigin;
-        this.numOfPages = numOfPages;
-        this.price = price;
-        this.amountInStock = amountInStock;
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
         this.iban = iban;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -95,13 +83,5 @@ public class Book {
 
     public void setAmountInStock(int amountInStock) {
         this.amountInStock = amountInStock;
-    }
-
-    public String getIban() {
-        return iban;
-    }
-
-    public void setIban(String iban) {
-        this.iban = iban;
     }
 }

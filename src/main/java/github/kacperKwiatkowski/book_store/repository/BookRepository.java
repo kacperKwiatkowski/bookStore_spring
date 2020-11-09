@@ -10,6 +10,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 
 import java.util.List;
 
+
 public interface BookRepository {
 
     Book save(Book entity);

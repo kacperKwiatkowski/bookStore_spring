@@ -1,15 +1,15 @@
 package github.kacperKwiatkowski.book_store.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
+    @Column(name = "user's_id")
     private int id;
     private String email;
     private String nick;
@@ -23,4 +23,114 @@ public class User {
     private String town;
     private String postcode;
     private LocalDate dob;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private Set<UserPurchase> userPurchases;
+
+    public User() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public int getHouseNum() {
+        return houseNum;
+    }
+
+    public void setHouseNum(int houseNum) {
+        this.houseNum = houseNum;
+    }
+
+    public int getFlatNum() {
+        return flatNum;
+    }
+
+    public void setFlatNum(int flatNum) {
+        this.flatNum = flatNum;
+    }
+
+    public int getStreet() {
+        return street;
+    }
+
+    public void setStreet(int street) {
+        this.street = street;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public Set<UserPurchase> getUserPurchases() {
+        return userPurchases;
+    }
+
+    public void setUserPurchases(Set<UserPurchase> userPurchases) {
+        this.userPurchases = userPurchases;
+    }
 }
