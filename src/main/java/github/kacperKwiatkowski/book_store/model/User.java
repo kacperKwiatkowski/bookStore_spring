@@ -3,15 +3,16 @@ package github.kacperKwiatkowski.book_store.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int id;
+    private UUID id;
     private String email;
     private String nick;
     private String password;
@@ -29,6 +30,14 @@ public class User {
     private Set<UserPurchase> userPurchases;
 
     public User() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -126,12 +135,5 @@ public class User {
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
-/*
-    public Set<UserPurchase> getUserPurchases() {
-        return userPurchases;
-    }
 
-    public void setUserPurchases(Set<UserPurchase> userPurchases) {
-        this.userPurchases = userPurchases;
-    }*/
 }

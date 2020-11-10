@@ -3,6 +3,7 @@ package github.kacperKwiatkowski.book_store.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users_purchases", uniqueConstraints = {
@@ -11,9 +12,9 @@ import java.util.Set;
 public class UserPurchase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id", nullable = false)
-    private int id;
+    private UUID id;
 
     private LocalDate dateOfPurchase;
 
@@ -30,11 +31,11 @@ public class UserPurchase {
 
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
