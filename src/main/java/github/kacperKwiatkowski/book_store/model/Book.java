@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    private String iban;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String title;
     private String author;
     private String langOfPrint;
@@ -20,12 +21,12 @@ public class Book {
 
     }
 
-    public String getIban() {
-        return iban;
+    public int getId() {
+        return id;
     }
 
-    public void setIban(String iban) {
-        this.iban = iban;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

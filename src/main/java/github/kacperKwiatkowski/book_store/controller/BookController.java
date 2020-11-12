@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/books")
+@CrossOrigin("*")
 public class BookController {
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     private final BookRepository bookRepository;
@@ -36,7 +37,7 @@ public class BookController {
     @PostMapping
     ResponseEntity<Book> createBookPosition(@RequestBody /*@Valid*/ Book bookPositionToCreate){
         Book retrievedBook = bookRepository.save(bookPositionToCreate);
-        return ResponseEntity.created(URI.create("/" + retrievedBook.getIban())).body(retrievedBook);
+        return ResponseEntity.created(URI.create("/" + retrievedBook.getId())).body(retrievedBook);
     }
 
 }
