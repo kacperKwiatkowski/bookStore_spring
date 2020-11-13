@@ -1,6 +1,7 @@
 package github.kacperKwiatkowski.book_store.model;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Table(name = "books")
@@ -16,6 +17,7 @@ public class Book {
     private int numOfPages;
     private double price;
     private int amountInStock;
+    private String bookCoverLink;
 
     public Book() {
 
@@ -83,5 +85,13 @@ public class Book {
 
     public void setAmountInStock(int amountInStock) {
         this.amountInStock = amountInStock;
+    }
+
+    public Optional<String> getBookCoverLink() {
+        return Optional.ofNullable(bookCoverLink);
+    }
+
+    public void setBookCoverLink(String bookCoverLink) {
+        this.bookCoverLink = bookCoverLink;
     }
 }

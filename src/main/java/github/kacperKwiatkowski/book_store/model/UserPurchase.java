@@ -12,16 +12,13 @@ import java.util.UUID;
 public class UserPurchase {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id", nullable = false)
-    private UUID id;
+    private int id;
 
     private LocalDate dateOfPurchase;
 
     private double amountOfPurchase;
-/*
-    @OneToMany
-    private Set<Book> purchasedBooks;*/
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
@@ -31,11 +28,11 @@ public class UserPurchase {
 
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
