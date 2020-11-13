@@ -1,0 +1,51 @@
+.header-wrapper{
+    height: 50px;
+    width: available;
+    background-color: #4fb113;
+}
+
+.header-button{
+    height: 50px;
+    width: 100px;
+    color: white;
+    font-size: 12px;
+    background-color: #4eb013;
+    border: none;
+    float: left;
+    font-weight: bold;
+
+    transition: opacity .4s ease-in-out;
+    -moz-transition: opacity .4s ease-in-out;
+    -webkit-transition: opacity .4s ease-in-out;
+}
+
+.header-button:hover{
+    background-color: #6fb347;
+
+    border: none;
+}
+
+.header-button:focus{
+    box-shadow: 10px 5px 5px #4eb013;
+    border: none;
+
+}
+
+table{
+    border-spacing: 0;
+    width: available;
+}
+
+th{
+    padding: 0;
+
+    width: available;
+}
+th :last-child{
+    padding: 0;
+    float: right;
+}
+
+button {
+    outline: none 0;
+}
