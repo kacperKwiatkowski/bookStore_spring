@@ -1,6 +1,7 @@
 import './App.css';
 import {Header} from "./components/Header";
 import BookPosition from "./components/BooksCards";
+import AddBookForm from "./sites/AddNewBookPosition";
 
 
 
@@ -9,6 +10,7 @@ function App() {
         <div className="App">
             <Header />
             <BookPosition />
+            <AddBookForm />
         </div>
     );
 }

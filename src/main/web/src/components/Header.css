@@ -1,7 +1,7 @@
 .header-wrapper{
     height: 50px;
     width: available;
-    background-color: #5a5a5a;
+    background-color: #4fb113;
 }
 
 .header-button{
@@ -9,7 +9,7 @@
     width: 100px;
     color: white;
     font-size: 12px;
-    background-color: #5a5a5a;
+    background-color: #4eb013;
     border: none;
     float: left;
     font-weight: bold;
@@ -20,23 +20,30 @@
 }
 
 .header-button:hover{
-    background-color: #474747;
+    background-color: #6fb347;
 
     border: none;
 }
 
 .header-button:focus{
-    box-shadow: 10px 5px 5px #5a5a5a;
+    box-shadow: 10px 5px 5px #4eb013;
     border: none;
 
 }
 
 table{
     border-spacing: 0;
+    width: available;
 }
 
 th{
     padding: 0;
+
+    width: available;
+}
+th :last-child{
+    padding: 0;
+    float: right;
 }
 
 button {
