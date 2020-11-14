@@ -24,16 +24,17 @@ public class BookCoverAWSUploadService {
         this.fileStore = fileStore;
     }
 
-    public void uploadBookCoverImage(MultipartFile file){
+    public void uploadBookCoverImage(MultipartFile file, int bookId){
         isFileEmpty(file);
         isImage(file);
         Map<String, String> metadata = extractMetadata(file);
-        uploadImage(file, metadata);
+        uploadImage(file, metadata, bookId);
     }
 
-    private void uploadImage(MultipartFile file, Map<String, String> metadata) {
-        String path = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), file.getName());
-        String filename = String.format("%s-%s", file.getName(), UUID.randomUUID());
+    private void uploadImage(MultipartFile file, Map<String, String> metadata, int bookId) {
+        String path = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), bookId);
+        //FIXME Filename is not correct
+        String filename = String.format("%s-%s", file.getOriginalFilename(), UUID.randomUUID());
         try {
             fileStore.save(path, filename, Optional.of(metadata), file.getInputStream());
         } catch (IOException e) {
