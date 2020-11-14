@@ -2,6 +2,7 @@ package github.kacperKwiatkowski.book_store.controller;
 
 import github.kacperKwiatkowski.book_store.model.Book;
 import github.kacperKwiatkowski.book_store.repository.BookRepository;
+import github.kacperKwiatkowski.book_store.service.BookCoverAWSUploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,12 @@ import java.util.List;
 public class BookController {
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     private final BookRepository bookRepository;
+    private final BookCoverAWSUploadService bookCoverAWSUploadService;
 
     @Autowired
-    public BookController(BookRepository bookRepository) {
+    public BookController(BookRepository bookRepository, BookCoverAWSUploadService bookCoverAWSUploadService) {
         this.bookRepository = bookRepository;
+        this.bookCoverAWSUploadService = bookCoverAWSUploadService;
     }
 
     @GetMapping(params = {"!sort", "!page", "!size"})
@@ -37,14 +40,24 @@ public class BookController {
     }
 
     @PostMapping(
+    )
+    ResponseEntity<Book> createBookPosition(
+            @RequestBody Book bookPositionToCreate) {
+        Book retrievedBook = bookRepository.save(bookPositionToCreate);
+        return ResponseEntity.created(URI.create("/" + retrievedBook.getId())).body(retrievedBook);
+    }
+
+    @PostMapping(
+            path = "/upload",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ResponseEntity<Book> createBookPosition(
-            @RequestBody Book bookPositionToCreate,
-            @RequestParam("file")MultipartFile file) {
-        Book retrievedBook = bookRepository.save(bookPositionToCreate);
-        return ResponseEntity.created(URI.create("/" + retrievedBook.getId())).body(retrievedBook);
+    public ResponseEntity createBookPosition(
+            @RequestParam("image")MultipartFile file,
+            @RequestParam("details")Book bookDetails) {
+
+        bookCoverAWSUploadService.uploadBookCoverImage(file);
+        return ResponseEntity.ok().build();
     }
 
 

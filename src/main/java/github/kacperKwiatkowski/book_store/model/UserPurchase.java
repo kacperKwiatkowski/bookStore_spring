@@ -1,3 +1,4 @@
+/*
 package github.kacperKwiatkowski.book_store.model;
 
 import javax.persistence.*;
@@ -60,3 +61,4 @@ public class UserPurchase {
         this.user = user;
     }
 }
+*/
