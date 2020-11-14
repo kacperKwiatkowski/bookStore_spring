@@ -1,5 +1,6 @@
 package github.kacperKwiatkowski.book_store.controller;
 
+import com.google.gson.Gson;
 import github.kacperKwiatkowski.book_store.model.Book;
 import github.kacperKwiatkowski.book_store.repository.BookRepository;
 import github.kacperKwiatkowski.book_store.service.BookCoverAWSUploadService;
@@ -54,9 +55,14 @@ public class BookController {
     )
     public ResponseEntity createBookPosition(
             @RequestParam("image")MultipartFile file,
-            @RequestParam("details")Book bookDetails) {
+            @RequestParam("details")String bookDetails) {
 
-        bookCoverAWSUploadService.uploadBookCoverImage(file);
+        Gson g = new Gson();
+        Book createdBook = g.fromJson(bookDetails, Book.class);
+        bookRepository.save(createdBook);
+
+
+        bookCoverAWSUploadService.uploadBookCoverImage(file, createdBook.getId());
         return ResponseEntity.ok().build();
     }
 

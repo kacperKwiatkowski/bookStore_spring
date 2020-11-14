@@ -12,23 +12,23 @@ export class AddBookForm extends React.Component {
         this.submitBook = this.submitBook.bind(this);
     }
 
-    initialState = {title: '', author: '', price: '', langOfPrint: '', langOfOrigin: '', numOfPages: ''};
+    initialState = {title: '', author: '', price: '', langOfPrint: '', langOfOrigin: '', numOfPages: '', cover: ''};
 
     submitBook = (event) => {
         event.preventDefault()
 
-        let book = {
+        const book = {
             title: this.state.title,
             author: this.state.author,
             price: this.state.price,
             langOfPrint: this.state.langOfPrint,
             langOfOrigin: this.state.langOfOrigin,
-            numOfPages: this.state.numOfPages,
+            numOfPages: this.state.numOfPages
         };
 
         const formData = new FormData();
         formData.append('image', this.state.cover);
-        formData.append('details', book);
+        formData.append('details', JSON.stringify(book));
 
         Axios.post("http://localhost:8080/books/upload", formData, {
                 headers: {
@@ -92,10 +92,10 @@ export class AddBookForm extends React.Component {
                         <input required autoComplete="off" type="text" name="numOfPages" id="addBookNumOfPages"
                                value={numOfPages}
                                onChange={this.bookDetailsChange}/></label>
+                    {/*//FIXME Path doesn't reset after submit*/}
                     <label>Cover
                         <input required autoComplete="off" type="file" name="cover" id="addBookCover"
-                               onChange={this.bookCoverChange}
-                               onClick={this.fileSelectHandler}/></label>
+                               onChange={this.bookCoverChange}/></label>
                     <button type="submit">SUBMIT</button>
                     <button type="reset">RESET</button>
                 </form>
