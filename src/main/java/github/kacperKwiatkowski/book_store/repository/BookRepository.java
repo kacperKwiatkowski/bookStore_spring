@@ -18,4 +18,6 @@ public interface BookRepository {
     List<Book> findAll();
     
     Page<Book> findAll(Pageable pageable);
+
+    Book findById (int id);
 }

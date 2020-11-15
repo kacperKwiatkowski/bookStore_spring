@@ -3,7 +3,7 @@ package github.kacperKwiatkowski.book_store.controller;
 import com.google.gson.Gson;
 import github.kacperKwiatkowski.book_store.model.Book;
 import github.kacperKwiatkowski.book_store.repository.BookRepository;
-import github.kacperKwiatkowski.book_store.service.BookCoverAWSUploadService;
+import github.kacperKwiatkowski.book_store.service.BookCoverAWSService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/books")
@@ -22,12 +24,12 @@ import java.util.List;
 public class BookController {
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     private final BookRepository bookRepository;
-    private final BookCoverAWSUploadService bookCoverAWSUploadService;
+    private final BookCoverAWSService bookCoverAWSService;
 
     @Autowired
-    public BookController(BookRepository bookRepository, BookCoverAWSUploadService bookCoverAWSUploadService) {
+    public BookController(BookRepository bookRepository, BookCoverAWSService bookCoverAWSService) {
         this.bookRepository = bookRepository;
-        this.bookCoverAWSUploadService = bookCoverAWSUploadService;
+        this.bookCoverAWSService = bookCoverAWSService;
     }
 
     @GetMapping(params = {"!sort", "!page", "!size"})
@@ -40,13 +42,15 @@ public class BookController {
         return ResponseEntity.ok(bookRepository.findAll(pageable).getContent());
     }
 
-    @PostMapping(
-    )
-    ResponseEntity<Book> createBookPosition(
-            @RequestBody Book bookPositionToCreate) {
-        Book retrievedBook = bookRepository.save(bookPositionToCreate);
-        return ResponseEntity.created(URI.create("/" + retrievedBook.getId())).body(retrievedBook);
+    @GetMapping
+            (
+                    path = "/download/cover/{bookId}"
+            )
+    ResponseEntity<byte[]> fetchBookPositionsCovers(@PathVariable("bookId") int bookId){
+        return ResponseEntity.ok( bookCoverAWSService
+                        .downloadBookCoverImage(bookId));
     }
+
 
     @PostMapping(
             path = "/upload",
@@ -59,10 +63,9 @@ public class BookController {
 
         Gson g = new Gson();
         Book createdBook = g.fromJson(bookDetails, Book.class);
+
         bookRepository.save(createdBook);
-
-
-        bookCoverAWSUploadService.uploadBookCoverImage(file, createdBook.getId());
+        bookCoverAWSService.uploadBookCoverImage(file, createdBook);
         return ResponseEntity.ok().build();
     }
 
