@@ -9,7 +9,9 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <BookPosition />
+            <div className="booksWrapper">
+                <BookPosition />
+            </div>
             <AddBookForm />
         </div>
     );

@@ -1,7 +1,9 @@
 package github.kacperKwiatkowski.book_store.service;
 
+import github.kacperKwiatkowski.book_store.adapter.SQLBookRepository;
 import github.kacperKwiatkowski.book_store.buckets.BucketName;
 import github.kacperKwiatkowski.book_store.fileStore.FileStore;
+import github.kacperKwiatkowski.book_store.model.Book;
 import github.kacperKwiatkowski.book_store.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,28 +15,45 @@ import java.util.*;
 import static org.apache.http.entity.ContentType.*;
 
 @Service
-public class BookCoverAWSUploadService {
+public class BookCoverAWSService {
 
     private final BookRepository bookRepository;
+    private final SQLBookRepository sqlBookRepository;
     private final FileStore fileStore;
 
     @Autowired
-    public BookCoverAWSUploadService(BookRepository bookRepository, FileStore fileStore) {
+    public BookCoverAWSService(BookRepository bookRepository, SQLBookRepository sqlBookRepository, FileStore fileStore) {
         this.bookRepository = bookRepository;
+        this.sqlBookRepository = sqlBookRepository;
         this.fileStore = fileStore;
     }
 
-    public void uploadBookCoverImage(MultipartFile file, int bookId){
+    public void uploadBookCoverImage(MultipartFile file, Book createdBook){
         isFileEmpty(file);
         isImage(file);
         Map<String, String> metadata = extractMetadata(file);
-        uploadImage(file, metadata, bookId);
+        uploadImage(file, metadata, createdBook);
     }
 
-    private void uploadImage(MultipartFile file, Map<String, String> metadata, int bookId) {
-        String path = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), bookId);
+    public byte[] downloadBookCoverImage(int bookId){
+        Book foundBook = bookRepository.findById(bookId);
+        String path = String.format("%s/%s",
+                BucketName.PROFILE_IMAGE.getBucketName(),
+                foundBook.getId());
+
+        return foundBook.getBookCoverLink()
+                .map(key -> fileStore.download(path, key))
+                .orElse(new byte[0]);
+    }
+
+
+
+    private void uploadImage(MultipartFile file, Map<String, String> metadata, Book createdBook) {
+        String path = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), createdBook.getId());
         //FIXME Filename is not correct
         String filename = String.format("%s-%s", file.getOriginalFilename(), UUID.randomUUID());
+        createdBook.setBookCoverLink(filename);
+        bookRepository.save(createdBook);
         try {
             fileStore.save(path, filename, Optional.of(metadata), file.getInputStream());
         } catch (IOException e) {
