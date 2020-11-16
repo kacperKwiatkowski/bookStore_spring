@@ -20,7 +20,7 @@ export const BookPosition = () => {
     return bookPositions.map((bookPosition, index) => {
 
         return (
-            <div key={index}>
+            <div className="bookCardsWrapper" key={index}>
                 <table className="bookCard">
                     <tbody>
                     <tr>

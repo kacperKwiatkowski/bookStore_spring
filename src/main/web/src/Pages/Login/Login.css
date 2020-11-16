@@ -1,0 +1,44 @@
+.loginFormLabel{
+    text-align: center;
+    font-size: 44px;
+}
+
+#loginForm{
+
+    position: absolute;
+    width: 650px;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+input{
+    width: 600px;
+    height: 80px;
+    margin: 25px;
+    border: #003055 solid 1px;
+    outline: none;
+}
+
+/*#loginEmail{
+}
+
+
+#loginEmail:hover{
+}
+
+#loginPassword{
+
+    width: 600px;
+    height: 50px;
+    margin: 25px;
+    border: none;
+    outline: none;
+}*/
+
+.loginQuathIcon{
+    width: 60px;
+    height: 60px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
