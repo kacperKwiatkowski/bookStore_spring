@@ -25,7 +25,7 @@ export const BookPosition = () => {
                     <tbody>
                     <tr>
                         <td>{bookPosition.id ? (
-                            <img className="coverImage" src={"http://localhost:8080/books/download/cover/" + bookPosition.id}/> ) : null}
+                            <img className="coverImage" src={"http://localhost:8080/books/download/cover/" + bookPosition.id} alt={""}/> ) : null}
                         </td>
                     </tr>
                     <tr>

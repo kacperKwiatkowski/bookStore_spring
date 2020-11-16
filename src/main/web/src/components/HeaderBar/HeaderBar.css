@@ -1,0 +1,163 @@
+.headerBar{
+    background: linear-gradient(90deg, #002e59 0%, #0080b0 100%);
+    color: #ffffff;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.headerBar-logo {
+    color: #ffffff;
+    justify-self: start;
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+.headerNav-searchBar {
+    margin-left: 100px;
+    width: 500px;
+    height: 55px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+
+    font-size: 24px;
+    padding-right: 30px;
+    color: #002e59;
+    text-align: right;
+}
+
+.headerNav-searchBar:hover {
+border: none;
+
+    outline: none;
+}
+
+.headerBar-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.headerBar-links {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.headerBar-links:hover {
+    color: #12232E;
+    background-color: #ffffff;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+    color: #ffffff;
+}
+
+.headerBar-links-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+Button {
+    margin-right: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+@media screen and (max-width: 960px){
+    .headerBar{
+        position: relative;
+    }
+
+    .headerBar-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        top: 150px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .headerBar-menu.active {
+        background: #12232E;
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .headerBar-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .headerBar-menu:hover {
+        background-color: #12232E;
+        border-radius: 0;
+    }
+
+    .headerBar-logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(25%, 50%);
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .fa.times {
+        color: #F3F3F3;
+        font-size: 2rem;
+    }
+
+    .headerBar-links-mobile {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 2rem auto;
+        border-radius: 4px;
+        width: 80%;
+        background: #F3F3F3;
+        color: #12232E;
+        font-size: 1.5rem;
+    }
+
+    .headerBar-links-mobile:hover {
+        background: #F3F3F3;
+        color: #12232E;
+        transition: 250ms;
+    }
+
+    Button {
+        display: none;
+    }
+}

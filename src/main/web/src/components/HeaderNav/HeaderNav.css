@@ -1,0 +1,32 @@
+.headerNav{
+    height: 50px;
+    width: available;
+    background: linear-gradient(90deg, #002e59 0%, #0080b0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.headerNav-menu{
+    display: grid;
+    grid-template-columns: repeat(50, auto);
+    grid-gap: 30px;
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.headerNav-links{
+    color: #ffffff;
+    border: none;
+    text-decoration: none;
+    margin: auto;
+    padding: inherit;
+}
+
+.headerNav-links:hover{
+    text-decoration: underline white;
+    border: none;
+}
