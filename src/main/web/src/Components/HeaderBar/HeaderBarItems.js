@@ -5,13 +5,13 @@ export const HeaderBarItems = [
         cName: 'headerBar-links'
     },
     {
-        title: 'New Account',
-        url: "#",
+        title: 'Log in',
+        url: "/login",
         cName: 'headerBar-links'
     },
     {
-        title: 'Log in',
-        url: "#",
-        cName: '/Login.js'
+        title: 'Sign in',
+        url: "/register",
+        cName: 'headerBar-links'
     }
 ]

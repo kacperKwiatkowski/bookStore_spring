@@ -3,6 +3,8 @@ import './HeaderBar.css';
 import logo from "./logo.png"
 import { HeaderBarItems } from "./HeaderBarItems";
 import { Button } from "../Button.js"
+import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 export class HeaderBar extends React.Component {
     state = { clicked: false }
@@ -16,7 +18,7 @@ export class HeaderBar extends React.Component {
 
             <nav className="headerBar">
                 <div className="headerBar-logo">
-                    ECLIPSE
+                    <Link className="headerBar-logo" to="/home">ECLIPSE</Link>
                 </div>
                 <div>
                     <input className="headerNav-searchBar" type="text"/>
@@ -27,13 +29,12 @@ export class HeaderBar extends React.Component {
                 <ul className={this.state.clicked ? `headerBar-menu active` : `headerBar-menu`}>
                     {HeaderBarItems.map((item, index) => {
                         return(
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>{item.title}</a>
+                            <li key={index} >
+                                <Link className={item.cName} to={item.url}>{item.title}</Link>
                             </li>
                         )
                     })}
                 </ul>
-                <Button>Sign up</Button>
             </nav>
         )
     }

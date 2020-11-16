@@ -1,22 +1,24 @@
 import React from 'react'
 import './App.css';
-import {HeaderBar} from "./components/HeaderBar/HeaderBar";
-import {HeaderNav} from "./components/HeaderNav/HeaderNav";
-import BookPosition from "./components/Body/BooksCards";
-import AddBookForm from "./utilities/AddNewBookPosition";
+import {HeaderBar} from "./Components/HeaderBar/HeaderBar";
+import {HeaderNav} from "./Components/HeaderNav/HeaderNav";
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Login} from './Pages/Login/Login'
+import {Register} from './Pages/Register/Register'
+import {Home} from './Pages/Home'
 
 function App() {
     return (
         <div className="App">
+            <Router>
                 <HeaderBar/>
                 <HeaderNav/>
-                <div className="all">
-
-                    <div className="bodyWrapper">
-                        <BookPosition/>{/*
-                        <AddBookForm/>*/}
-                    </div>
-                </div>
+                <Switch>
+                    <Route path='/home' component={Home}/>
+                    <Route path='/login' component={Login}/>
+                    <Route path='/register' component={Register}/>
+                </Switch>
+            </Router>
         </div>
     )
 }

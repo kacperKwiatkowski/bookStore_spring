@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login() {
+function A() {
     return (
         <div className="Login">
             <form id="logging-form">
