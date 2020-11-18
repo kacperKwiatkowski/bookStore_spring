@@ -1,0 +1,43 @@
+
+form{
+    display: flex;
+}
+
+.searchBar {
+    width: 440px;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin-left: 10%;
+    margin-top: 100px;
+
+    display: flex;
+    font-size: 24px;
+    color: #202020;
+
+    padding-left: 20px;
+
+    transition: all 0.5s ease;
+}
+.searchBar:hover {
+    /*border: solid 4px #ffcb00;*/
+}
+
+
+.searchBar:focus {
+    width: 70%;
+    transition: all 0.5s ease;
+
+    border: solid 4px #ffcb00;
+}
+
+.searchButton{
+
+    margin-top: 75px;
+    color: #F3F3F3;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    background: none;
+}
+

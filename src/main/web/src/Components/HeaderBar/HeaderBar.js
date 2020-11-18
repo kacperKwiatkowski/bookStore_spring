@@ -1,10 +1,9 @@
 import React from "react";
 import './HeaderBar.css';
-import logo from "./logo.png"
 import { HeaderBarItems } from "./HeaderBarItems";
-import { Button } from "../Button.js"
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+import {SideBar} from "../Sidebar/SideBar";
+
 
 export class HeaderBar extends React.Component {
     state = { clicked: false }
@@ -20,9 +19,6 @@ export class HeaderBar extends React.Component {
                 <div className="headerBar-logo">
                     <Link className="headerBar-logo" to="/home">ECLIPSE</Link>
                 </div>
-                <div>
-                    <input className="headerNav-searchBar" type="text"/>
-                </div>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? `fas fa-times` : `fas fa-bars`}/>
                 </div>
@@ -35,6 +31,7 @@ export class HeaderBar extends React.Component {
                         )
                     })}
                 </ul>
+
             </nav>
         )
     }

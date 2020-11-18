@@ -1,11 +1,13 @@
 .headerNav{
     height: 50px;
     width: available;
-    background: linear-gradient(90deg, #002e59 0%, #0080b0 100%);
+    background: #202020;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
+
+    margin-left: 10%;
 }
 
 .headerNav-menu{
@@ -15,7 +17,6 @@
     list-style: none;
     text-align: center;
     justify-content: center;
-    margin-left: 100px;
 }
 
 .headerNav-links{
