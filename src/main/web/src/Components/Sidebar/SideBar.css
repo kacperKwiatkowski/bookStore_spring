@@ -1,0 +1,42 @@
+.sideBar{
+    position: absolute;
+    top: -10px;
+    background: #ffcb00;
+    width: 300px;
+    height: 2000px;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    margin: auto;
+    transform: translateX(-100%);
+    transition: ease-in 0.3ms;
+}
+
+/*
+.hideSideBar{
+    display: none;
+}
+*/
+
+.sideBar-menu{
+    grid-template-columns: repeat(500, auto);
+    grid-gap: 22px;
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    margin-top: 400px;
+
+}
+
+.sideBar-links{
+
+    color: #000000;
+    border: none;
+    text-decoration: none;
+    margin: 20px;
+    transform: rotate(30deg);
+}
+
+
+.sideBar-links:hover{
+    text-decoration: underline #000000;
+    border: none;
+}

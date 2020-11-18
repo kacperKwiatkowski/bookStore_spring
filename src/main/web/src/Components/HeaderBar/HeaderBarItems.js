@@ -1,5 +1,10 @@
 export const HeaderBarItems = [
     {
+        title: 'Contact',
+        url: "#",
+        cName: 'headerBar-links'
+    },
+    {
         title: 'Basket',
         url: "#",
         cName: 'headerBar-links'

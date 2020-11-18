@@ -14,9 +14,4 @@ export const HeaderNavItems = [
         url: "#",
         cName: 'headerNav-links'
     },
-    {
-        title: 'Contact',
-        url: "#",
-        cName: 'headerNav-links'
-    },
 ]

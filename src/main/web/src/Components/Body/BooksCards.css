@@ -1,30 +1,64 @@
 .bookCardsWrapper{
-    width: 1500px;
-    margin: auto;
+    width: 60%;
+    margin-right: 10%;
+    margin-left: auto;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .bookCard{
-    width:250px;
-    height: 400px;
+    display: grid;
+    width:150px;
+    height: 320px;
     font-size: 12px;
     float: left;
     border-spacing:0;
     border-collapse: collapse;
-    margin: 25px;
+    margin: auto;
+    padding: 100px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .coverImage{
-    height: 300px;
+    height: 220px;
     object-fit: scale-down;
     box-shadow: 0 1px 1px rgba(0,0,0,0.08),
     0 2px 2px rgba(0,0,0,0.12),
     0 4px 4px rgba(0,0,0,0.16),
     0 8px 8px rgba(0,0,0,0.20);
     margin-bottom: 10px;
+
+    transition: ease-in 0.2s;
+}
+
+.coverImage:hover{
+    height: 280px;
+    transition: ease-in 0.2s;
+    z-index: 2;
+    position: relative;
+    object-fit: unset;
+}
+
+tr:first-child:hover ~ tr:nth-child(n+2){
+    /*    height: 220px;
+        object-fit: scale-down;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.08),
+        0 2px 2px rgba(0,0,0,0.12),
+        0 4px 4px rgba(0,0,0,0.16),
+        0 8px 8px rgba(0,0,0,0.20);
+        margin-bottom: 10px;
+
+        */
+    opacity: 0;
+    transition: ease-in 0.2s;
 }
 
 td {
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
     font-weight: bold;
     display: flex;
@@ -34,6 +68,12 @@ td {
 }
 
 tr:last-child {
-    color: #fd694b;
+    color: #ffcb00;
+    text-shadow:
+            0.07em 0 black,
+            0 0.07em black,
+            -0.07em 0 black,
+            0 -0.07em black;
 }
+
 
