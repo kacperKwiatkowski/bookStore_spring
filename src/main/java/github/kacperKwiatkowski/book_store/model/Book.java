@@ -1,5 +1,8 @@
 package github.kacperKwiatkowski.book_store.model;
 
+import github.kacperKwiatkowski.book_store.util.enums.BookGenre;
+import github.kacperKwiatkowski.book_store.util.enums.CountryCode;
+
 import javax.persistence.*;
 import java.util.Optional;
 
@@ -12,8 +15,12 @@ public class Book {
     private int id;
     private String title;
     private String author;
-    private String langOfPrint;
-    private String langOfOrigin;
+    @Enumerated(EnumType.STRING)
+    private BookGenre genre;
+    @Enumerated(EnumType.STRING)
+    private CountryCode langOfPrint;
+    @Enumerated(EnumType.STRING)
+    private CountryCode langOfOrigin;
     private int numOfPages;
     private double price;
     private int amountInStock;
@@ -47,19 +54,27 @@ public class Book {
         this.author = author;
     }
 
-    public String getLangOfPrint() {
+    public BookGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(BookGenre genre) {
+        this.genre = genre;
+    }
+
+    public CountryCode getLangOfPrint() {
         return langOfPrint;
     }
 
-    public void setLangOfPrint(String langOfPrint) {
+    public void setLangOfPrint(CountryCode langOfPrint) {
         this.langOfPrint = langOfPrint;
     }
 
-    public String getLangOfOrigin() {
+    public CountryCode getLangOfOrigin() {
         return langOfOrigin;
     }
 
-    public void setLangOfOrigin(String langOfOrigin) {
+    public void setLangOfOrigin(CountryCode langOfOrigin) {
         this.langOfOrigin = langOfOrigin;
     }
 
