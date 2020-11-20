@@ -1,8 +1,7 @@
 .bookCardsWrapper{
     width: 60%;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-left: auto;
-
     justify-content: center;
     align-items: center;
 }

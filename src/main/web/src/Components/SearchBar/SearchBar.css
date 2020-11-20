@@ -1,6 +1,6 @@
-
 form{
     display: flex;
+    background-color: #202020;
 }
 
 .searchBar {
@@ -9,31 +9,25 @@ form{
     border: none;
     outline: none;
     margin-left: 10%;
-    margin-top: 100px;
-
     display: flex;
     font-size: 24px;
     color: #202020;
-
     padding-left: 20px;
-
     transition: all 0.5s ease;
 }
-.searchBar:hover {
-    /*border: solid 4px #ffcb00;*/
-}
 
+.searchBar:hover {
+    border: solid 2px #ffcb00;
+    transition: all 0.2s ease;
+}
 
 .searchBar:focus {
     width: 70%;
     transition: all 0.5s ease;
-
-    border: solid 4px #ffcb00;
+    border: solid 2px #ffcb00;
 }
 
 .searchButton{
-
-    margin-top: 75px;
     color: #F3F3F3;
     font-size: 20px;
     outline: none;
@@ -41,3 +35,16 @@ form{
     background: none;
 }
 
+.searchButton:hover{
+    color: #202020;
+    background-color: #F3F3F3;
+    transition: ease-in 0.5s;
+}
+
+
+@media screen and (max-width: 960px) {
+
+    form{
+        display: none;
+    }
+}

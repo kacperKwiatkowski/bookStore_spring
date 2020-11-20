@@ -2,7 +2,6 @@
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
   font-size: 16px;
 }
 
@@ -11,16 +10,15 @@
 }
 
 .bodyWrapper{
-  width: 1500px;
+  width: auto;
   margin: auto;
 
 }
 
+
 header{
-  display: grid;
   background-color: #202020;
-  height: 300px;clip-path: polygon(0 0, 100% 0, 100% 79%, 0% 100%);
-    z-index: 4;
+  height: 300px;clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
 }
 
 .SideBar{

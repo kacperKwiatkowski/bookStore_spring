@@ -1,3 +1,32 @@
+.dropdown-menu.active{
+    background-color: #202020;
+    position: absolute;
+    top: 255px;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    transition: 0.5s;
+    opacity: 0.6;
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.dropdown-menu.disabled{
+    display: none;
+}
+
+.sideBar-links{
+
+    color: #ffb100;
+    border: none;
+    text-decoration: none;
+    margin: 20px;
+    transform: rotate(40deg);
+}
+
+/*
 .sideBar{
     position: absolute;
     top: -10px;
@@ -10,11 +39,6 @@
     transition: ease-in 0.3ms;
 }
 
-/*
-.hideSideBar{
-    display: none;
-}
-*/
 
 .sideBar-menu{
     grid-template-columns: repeat(500, auto);
@@ -39,4 +63,4 @@
 .sideBar-links:hover{
     text-decoration: underline #000000;
     border: none;
-}
+}*/

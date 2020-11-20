@@ -3,31 +3,31 @@
     width: available;
     background: #202020;
     display: flex;
-    justify-content: left;
     align-items: center;
-    margin-bottom: 200px;
-
-    margin-left: 10%;
+    padding-left: 10%;
 }
 
 .headerNav-menu{
-    display: grid;
-    grid-template-columns: repeat(50, auto);
+    display: flex;
     grid-gap: 30px;
     list-style: none;
-    text-align: center;
-    justify-content: center;
 }
-
 .headerNav-links{
     color: #ffffff;
     border: none;
     text-decoration: none;
-    margin: auto;
-    padding: inherit;
+    display: flex;
+    flex-direction: row;
 }
 
 .headerNav-links:hover{
     text-decoration: underline white;
     border: none;
+}
+
+
+@media screen and (max-width: 960px) {
+    .headerNav {
+        display: none;
+    }
 }

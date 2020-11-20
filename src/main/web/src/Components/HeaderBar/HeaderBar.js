@@ -17,7 +17,7 @@ export class HeaderBar extends React.Component {
 
             <nav className="headerBar">
                 <div className="headerBar-logo">
-                    <Link className="headerBar-logo" to="/home">ECLIPSE</Link>
+                    <Link className="headerBar-logo" to="/home">GAMBIT</Link>
                 </div>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? `fas fa-times` : `fas fa-bars`}/>
