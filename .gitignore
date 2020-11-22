@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Code ###
-!**.src/main/resources/awsKeys.properties
+src/main/resources/awsKeys.properties
