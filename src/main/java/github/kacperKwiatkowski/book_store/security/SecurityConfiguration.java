@@ -1,3 +1,4 @@
+/*
 package github.kacperKwiatkowski.book_store.security;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -46,3 +47,8 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
                 .permitAll();
     }
 }
+
+keycloak.auth-server-url= 'http://localhost:8180/auth'
+        keycloak.realm= "Book_Store"
+        keycloak.resource= "Book_Store_Client"
+        keycloak.public-client= true*/
