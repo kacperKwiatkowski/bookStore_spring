@@ -1,10 +1,7 @@
-/*
 package github.kacperKwiatkowski.book_store.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "users_purchases", uniqueConstraints = {
@@ -22,7 +19,7 @@ public class UserPurchase {
     private double amountOfPurchase;
 
     @ManyToOne()
-    @JoinColumn(name = "user_id")
+    @JoinTable(name = "users", joinColumns = @JoinColumn(name = "user_id"))
     private User user;
 
     public UserPurchase() {
@@ -61,4 +58,3 @@ public class UserPurchase {
         this.user = user;
     }
 }
-*/

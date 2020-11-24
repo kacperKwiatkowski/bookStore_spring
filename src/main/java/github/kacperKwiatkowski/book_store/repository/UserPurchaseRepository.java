@@ -1,4 +1,3 @@
-/*
 package github.kacperKwiatkowski.book_store.repository;
 
 import github.kacperKwiatkowski.book_store.model.Book;
@@ -13,4 +12,3 @@ public interface UserPurchaseRepository {
 
     Page<UserPurchase> findAll(Pageable pageable);
 }
-*/
