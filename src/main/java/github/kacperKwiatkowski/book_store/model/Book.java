@@ -4,6 +4,7 @@ import github.kacperKwiatkowski.book_store.util.enums.BookGenre;
 import github.kacperKwiatkowski.book_store.util.enums.CountryCode;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Optional;
 
 @Entity
@@ -108,5 +109,18 @@ public class Book {
 
     public void setBookCoverLink(String bookCoverLink) {
         this.bookCoverLink = bookCoverLink;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
