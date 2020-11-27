@@ -19,7 +19,6 @@ public class UserPurchase {
     private double amountOfPurchase;
 
     @ManyToOne()
-    @JoinTable(name = "users", joinColumns = @JoinColumn(name = "user_id"))
     private User user;
 
     public UserPurchase() {

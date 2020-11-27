@@ -1,4 +1,3 @@
-/*
 package github.kacperKwiatkowski.book_store.controller;
 
 import github.kacperKwiatkowski.book_store.model.User;
@@ -26,4 +25,3 @@ public class UserPurchaseController {
         return ResponseEntity.ok(userPurchaseRepository.findAll(pageable).getContent());
     }
 }
-*/

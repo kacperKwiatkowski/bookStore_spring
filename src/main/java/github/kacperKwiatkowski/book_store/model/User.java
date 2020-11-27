@@ -26,7 +26,8 @@ public class User {
     private String postcode;
     private LocalDate dob;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany
+    @JoinColumn(name = "purchase_id")
     private Set<UserPurchase> userPurchases;
 
     public User() {
