@@ -1,5 +1,7 @@
 package github.kacperKwiatkowski.book_store.model;
 
+import com.sun.istack.Nullable;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
@@ -14,16 +16,26 @@ public class User {
     @Column(name = "user_id")
     private int id;
     private String email;
+    @Nullable
     private String nick;
     private String password;
+    @Nullable
     private String firstname;
+    @Nullable
     private String lastname;
+    @Nullable
     private String phoneNum;
+    @Nullable
     private int houseNum;
+    @Nullable
     private int flatNum;
+    @Nullable
     private String street;
+    @Nullable
     private String town;
+    @Nullable
     private String postcode;
+    @Nullable
     private LocalDate dob;
 
     @OneToMany

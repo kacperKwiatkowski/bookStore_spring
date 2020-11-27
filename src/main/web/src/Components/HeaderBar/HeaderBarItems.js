@@ -1,12 +1,12 @@
 export const HeaderBarItems = [
     {
         title: 'Contact',
-        url: "#",
+        url: "contact",
         cName: 'headerBar-links'
     },
     {
         title: 'Basket',
-        url: "#",
+        url: "/basket",
         cName: 'headerBar-links'
     },
     {

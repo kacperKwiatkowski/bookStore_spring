@@ -10,35 +10,90 @@
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+    background-color: #f3f3f3;
+
+    display: block;
 }
 
 input{
     width: 600px;
-    height: 80px;
+    height: 40px;
     margin: 25px;
     border: #003055 solid 1px;
     outline: none;
 }
 
-/*#loginEmail{
+#loginEmail{
+    width: 600px;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    outline: none;
+
+    transition: all 0.2s ease-out;
+
 }
 
 
 #loginEmail:hover{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #ffcb00,  /* inner white */
+            0 0 3px 3px #ffcb00, /* middle magenta */
+            0 0 3px 3px #ffcb00; /* outer cyan */
+
+}#loginEmail:focus{
+
+    transition: all 0.2s ease;
+    box-shadow:
+            0 0 3px 3px #ffcb00,  /* inner white */
+            0 0 3px 3px #ffcb00, /* middle magenta */
+            0 0 3px 3px #ffcb00; /* outer cyan */
 }
 
 #loginPassword{
 
     width: 600px;
-    height: 50px;
-    margin: 25px;
+    height: 40px;
+    margin: 20px;
     border: none;
     outline: none;
-}*/
+
+}
+
+#loginPassword:hover{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #ffcb00,  /* inner white */
+            0 0 3px 3px #ffcb00, /* middle magenta */
+            0 0 3px 3px #ffcb00; /* outer cyan */
+
+}#loginPassword:focus{
+
+     transition: all 0.2s ease;
+     box-shadow:
+             0 0 3px 3px #ffcb00,  /* inner white */
+             0 0 3px 3px #ffcb00, /* middle magenta */
+             0 0 3px 3px #ffcb00; /* outer cyan */
+ }
 
 .loginQuathIcon{
     width: 60px;
     height: 60px;
-    margin-left: 25px;
+    margin-right: 25px;
     margin-top: 25px;
+    float: right;
+}
+
+.loginButton{
+    margin-top: 25px;
+    margin-right: 25px;
+    height: 60px;
+    width: 240px;
+    float: right;
+    background-color: #ffcb00;
+    border: none;
+    font-weight: bold;
 }

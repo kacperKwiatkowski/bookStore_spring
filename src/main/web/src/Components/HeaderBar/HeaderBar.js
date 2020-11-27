@@ -2,8 +2,6 @@ import React from "react";
 import './HeaderBar.css';
 import { HeaderBarItems } from "./HeaderBarItems";
 import { Link } from 'react-router-dom'
-import {SideBar} from "../Sidebar/SideBar";
-
 
 export class HeaderBar extends React.Component {
     state = { clicked: false }

@@ -7,4 +7,6 @@ import org.springframework.data.domain.Pageable;
 public interface UserRepository {
 
     Page<User> findAll(Pageable pageable);
+
+    User save(User user);
 }

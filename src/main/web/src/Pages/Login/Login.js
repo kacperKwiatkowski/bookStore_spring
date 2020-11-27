@@ -1,23 +1,72 @@
 import React from 'react';
+
+import axios from "axios";
 import './Login.css'
 import google_icon from './google_qauth.png';
 import facebook_icon from './facebook_qauth.png';
+import Axios from "axios";
 
-export function Login() {
+export class Login extends React.Component{
 
-    
+    constructor(props) {
+        super(props);
+        this.state = this.initialState
+        this.submitLoginCredentials = this.submitLoginCredentials.bind(this);
+        this.loginCredentials = this.loginCredentials.bind(this);
+    }
 
-    return (
-        <div>
-            <form id="loginForm">
-                <div className="loginFormLabel">Log in</div>
-                <input type="text" name="email" id="loginEmail"/>
-                <input type="password" name="password" id="loginPassword"/>
-                <img className="loginQuathIcon" src={google_icon} alt={""}/>
-                <img className="loginQuathIcon" src={facebook_icon} alt={""}/>
-            </form>
-        </div>
-    )
+    initialState = {email: '', password: ''};
+
+    loginCredentials = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    submitLoginCredentials = (event) => {
+        event.preventDefault()
+
+        const credentials = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        const formData = new FormData();
+        formData.append('details', JSON.stringify(credentials));
+
+        Axios.post("http://localhost:8080/users/login", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            }
+        )
+            .then(response => {
+                if (response.data != null) {
+                    this.setState(this.initialState);
+                    alert("User logged in successfully")
+                }
+            })
+    }
+
+    render() {
+
+        const {email, password} = this.state
+        return (
+            <div>
+                <form id="loginForm" onSubmit={this.submitLoginCredentials}>
+                    <div className="loginFormLabel">Log in</div>
+                    <input type="text" name="email" id="loginEmail"
+                           value={email} onChange={this.loginCredentials} required/>
+                    <input type="password" name="password" id="loginPassword"
+                           value={password} onChange={this.loginCredentials} required/>
+
+                    <button className='loginButton' type='submit' onSubmit='requestOptions'>LOG IN</button>
+                    <img className="loginQuathIcon" src={google_icon} alt={""}/>
+                    <img className="loginQuathIcon" src={facebook_icon} alt={""}/>
+                </form>
+            </div>
+        )
+
+    }
+
 }
-
-export default Login;
