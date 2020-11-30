@@ -33,12 +33,24 @@ public class UserController {
     @PostMapping(
             path = "/login"
     )
-    void loginRequestVerifier(
+    ResponseEntity<User> loginRequestVerifier(
             @RequestParam("details")String loginDetails)
     {
         Gson g = new Gson();
         User user = g.fromJson(loginDetails, User.class);
         userRepository.save(user);
+        return ResponseEntity.ok().build();
+    }
 
+    @PostMapping(
+            path = "/register"
+    )
+    ResponseEntity<User>  registerRequestVerifier(
+            @RequestParam("details")String registerDetails)
+    {
+        Gson g = new Gson();
+        User user = g.fromJson(registerDetails, User.class);
+        userRepository.save(user);
+        return ResponseEntity.ok().build();
     }
 }

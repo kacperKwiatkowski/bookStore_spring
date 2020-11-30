@@ -5,40 +5,77 @@
 
 #registerForm{
 
+    margin-top: 100px;
     position: absolute;
     width: 650px;
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+    background-color: #f3f3f3;
+
+    display: block;
 }
 
 input{
     width: 600px;
-    height: 80px;
-    margin: 25px;
-    border: #003055 solid 1px;
-    outline: none;
-}
-
-/*#loginEmail{
-}
-
-
-#loginEmail:hover{
-}
-
-#loginPassword{
-
-    width: 600px;
-    height: 50px;
-    margin: 25px;
+    height: 40px;
+    margin: 20px;
     border: none;
     outline: none;
-}*/
 
-.loginQuathIcon{
-    width: 60px;
-    height: 60px;
-    margin-left: 25px;
+    transition: all 0.2s ease-out;
+
+}
+
+input::placeholder{
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+#loginEmail:hover{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #ffcb00,  /* inner white */
+            0 0 3px 3px #ffcb00, /* middle magenta */
+            0 0 3px 3px #ffcb00; /* outer cyan */
+
+}#loginEmail:focus{
+
+     transition: all 0.2s ease;
+     box-shadow:
+             0 0 3px 3px #ffcb00,  /* inner white */
+             0 0 3px 3px #ffcb00, /* middle magenta */
+             0 0 3px 3px #ffcb00; /* outer cyan */
+ }
+
+.signInButton{
     margin-top: 25px;
+    margin-right: 25px;
+    height: 60px;
+    width: 240px;
+    float: right;
+    background-color: #ffcb00;
+    border: none;
+    font-weight: bold;
+
+    transition: all 0.2s ease-out;
+}
+
+.signInButton:hover{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #000000,  /* inner white */
+            0 0 3px 3px #000000, /* middle magenta */
+            0 0 3px 3px #000000; /* outer cyan */
+}
+
+.signInButton:focus{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #000000,  /* inner white */
+            0 0 3px 3px #000000, /* middle magenta */
+            0 0 3px 3px #000000; /* outer cyan */
 }

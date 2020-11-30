@@ -52,19 +52,19 @@ export class Login extends React.Component{
 
         const {email, password} = this.state
         return (
-            <div>
                 <form id="loginForm" onSubmit={this.submitLoginCredentials}>
                     <div className="loginFormLabel">Log in</div>
                     <input type="text" name="email" id="loginEmail"
+                           placeholder="Enter your email"
                            value={email} onChange={this.loginCredentials} required/>
                     <input type="password" name="password" id="loginPassword"
+                           placeholder="Enter your password"
                            value={password} onChange={this.loginCredentials} required/>
 
                     <button className='loginButton' type='submit' onSubmit='requestOptions'>LOG IN</button>
                     <img className="loginQuathIcon" src={google_icon} alt={""}/>
                     <img className="loginQuathIcon" src={facebook_icon} alt={""}/>
                 </form>
-            </div>
         )
 
     }

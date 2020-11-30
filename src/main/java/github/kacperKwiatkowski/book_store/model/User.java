@@ -16,29 +16,22 @@ public class User {
     @Column(name = "user_id")
     private int id;
     private String email;
-    @Nullable
     private String nick;
     private String password;
-    @Nullable
     private String firstname;
-    @Nullable
     private String lastname;
-    @Nullable
     private String phoneNum;
-    @Nullable
-    private int houseNum;
-    @Nullable
-    private int flatNum;
-    @Nullable
+    @Column(nullable = true)
+    private Integer houseNum;
+    @Column(nullable = true)
+    private Integer flatNum;
     private String street;
-    @Nullable
     private String town;
-    @Nullable
     private String postcode;
-    @Nullable
     private LocalDate dob;
 
-    @OneToMany
+    @Nullable
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "purchase_id")
     private Set<UserPurchase> userPurchases;
 
@@ -149,4 +142,11 @@ public class User {
         this.dob = dob;
     }
 
+    public Set<UserPurchase> getUserPurchases() {
+        return userPurchases;
+    }
+
+    public void setUserPurchases(Set<UserPurchase> userPurchases) {
+        this.userPurchases = userPurchases;
+    }
 }

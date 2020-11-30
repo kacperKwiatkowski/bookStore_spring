@@ -18,7 +18,7 @@ public class UserPurchase {
 
     private double amountOfPurchase;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
     public UserPurchase() {

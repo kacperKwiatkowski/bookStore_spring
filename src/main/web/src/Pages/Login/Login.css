@@ -18,24 +18,19 @@
 input{
     width: 600px;
     height: 40px;
-    margin: 25px;
-    border: #003055 solid 1px;
-    outline: none;
-}
-
-#loginEmail{
-    width: 600px;
-    height: 40px;
     margin: 20px;
     border: none;
     outline: none;
 
     transition: all 0.2s ease-out;
-
 }
 
+input::placeholder{
+    font-size: 12px;
+    padding-left: 10px;
+}
 
-#loginEmail:hover{
+input:hover{
 
     transition: all 0.2s ease-in;
     box-shadow:
@@ -43,7 +38,9 @@ input{
             0 0 3px 3px #ffcb00, /* middle magenta */
             0 0 3px 3px #ffcb00; /* outer cyan */
 
-}#loginEmail:focus{
+}
+
+input:focus{
 
     transition: all 0.2s ease;
     box-shadow:
@@ -51,33 +48,6 @@ input{
             0 0 3px 3px #ffcb00, /* middle magenta */
             0 0 3px 3px #ffcb00; /* outer cyan */
 }
-
-#loginPassword{
-
-    width: 600px;
-    height: 40px;
-    margin: 20px;
-    border: none;
-    outline: none;
-
-}
-
-#loginPassword:hover{
-
-    transition: all 0.2s ease-in;
-    box-shadow:
-            0 0 3px 3px #ffcb00,  /* inner white */
-            0 0 3px 3px #ffcb00, /* middle magenta */
-            0 0 3px 3px #ffcb00; /* outer cyan */
-
-}#loginPassword:focus{
-
-     transition: all 0.2s ease;
-     box-shadow:
-             0 0 3px 3px #ffcb00,  /* inner white */
-             0 0 3px 3px #ffcb00, /* middle magenta */
-             0 0 3px 3px #ffcb00; /* outer cyan */
- }
 
 .loginQuathIcon{
     width: 60px;
@@ -96,4 +66,22 @@ input{
     background-color: #ffcb00;
     border: none;
     font-weight: bold;
+}
+
+.loginButton:hover{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #000000,  /* inner white */
+            0 0 3px 3px #000000, /* middle magenta */
+            0 0 3px 3px #000000; /* outer cyan */
+}
+
+.loginButton:focus{
+
+    transition: all 0.2s ease-in;
+    box-shadow:
+            0 0 3px 3px #000000,  /* inner white */
+            0 0 3px 3px #000000, /* middle magenta */
+            0 0 3px 3px #000000; /* outer cyan */
 }
